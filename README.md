@@ -1,0 +1,2 @@
+# MauiClass
+MAUI projects
