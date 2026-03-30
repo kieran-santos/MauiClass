@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AppJogoDaVelha.MainPage">
+    <!--É tudo que aparece na tela-->
+
+    <ContentPage.Background>
+        <!--O LinearGradrientBrush é como um objeto aqui-->
+        <LinearGradientBrush StartPoint="0,1" EndPoint="1,0">
+            <GradientStop Color="#BDCAF2" Offset="0.3"/>
+            <GradientStop Color="#77A0F2" Offset="1.1"/>
+        </LinearGradientBrush>
+    </ContentPage.Background>
+    <ContentPage.Resources>
+        <Style TargetType="Button">
+            <Setter Property="BackgroundColor" Value="Transparent"/>
+            <Setter Property="CornerRadius" Value="15"/>
+            <Setter Property="TextColor" Value="White"/>
+            <Setter Property="FontSize" Value="80"/>
+            <Setter Property="BorderColor" Value="White"/>
+        </Style>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <!--Funciona como o o body-->
+        <!--Os asteríscos separam a grid de forma inteligente, com espaços iguais-->
+
+
+        <!--A propriedade Column.Span faz com que possa ultrapassar
+        colunas-->
+
+        <Grid x:Name ="jogo" RowDefinitions="*, *, *"
+              ColumnDefinitions="*, *, *"
+              ColumnSpacing="5"
+              RowSpacing="5"
+              Margin="5">
+            
+            <!--O certo seria criar a matriz no c# e os botões aqui fazem referência às casas da matriz
+            e não o contrario, como foi feito aqui-->
+            <Button x:Name="btn00" Grid.Row="0" Grid.Column="0" Clicked="Button_Clicked"/>
+            <Button x:Name="btn01" Grid.Row="0" Grid.Column="1" Clicked="Button_Clicked"/>
+            <Button x:Name="btn02" Grid.Row="0" Grid.Column="2" Clicked="Button_Clicked"/>
+
+            <Button x:Name="btn10" Grid.Row="1" Grid.Column="0" Clicked="Button_Clicked"/>
+            <Button x:Name="btn11" Grid.Row="1" Grid.Column="1" Clicked="Button_Clicked"/>
+            <Button x:Name="btn12" Grid.Row="1" Grid.Column="2" Clicked="Button_Clicked"/>
+
+            <Button x:Name="btn20" Grid.Row="2" Grid.Column="0" Clicked="Button_Clicked"/>
+            <Button x:Name="btn21" Grid.Row="2" Grid.Column="1" Clicked="Button_Clicked"/>
+            <Button x:Name="btn22" Grid.Row="2" Grid.Column="2" Clicked="Button_Clicked"/>
+        </Grid>
+    </ContentPage.Content>
+
+</ContentPage>
