@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AppIMC.MainPage">
+
+    <StackLayout> <!-- Um em cima do outro -->
+
+        <Label Text="Calculando seu IMC"/>
+
+        <Label Text="Informe sua altura"/>
+        <Entry x:Name="altura" Placeholder="Altura em metros"/>
+
+        <Label Text="Informe seu peso"/>
+        <Entry x:Name="peso" Placeholder="Peso em quilos"/>
+
+
+        <Button Text="Calcular" Clicked="Button_Clicked"/>
+
+    </StackLayout>
+
+</ContentPage>
