@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="HotelMaui.Views.ContratacaoHospedagem"
+             Title="ContratacaoHospedagem">
+    
+    <!-- Não é possível empilhar tags no ContentPage, preciso ter uma englobando tudo -->
+    <!-- Container geral da tela -->
+    <VerticalStackLayout Padding="10" Spacing="10">
+        <Label Text="Cálculo Diária"
+               TextColor="{StaticResource Purple}"
+               HorizontalTextAlignment="Center"
+               FontSize="45"/>
+
+        <Label x:Name="txt_usuario_logado"/>
+        <!-- Container das quantidades de pessoas e escolha do quarto -->
+        <Border Padding="10" StrokeShape="RoundRectangle 10">
+            <VerticalStackLayout>
+                
+                <!-- Grid das quantidades de pessoas -->
+                <Grid RowDefinitions="Auto, Auto"
+                      ColumnDefinitions="*, *, 2*">
+                    <!-- Para calcular o valor por adultos -->
+                    <Label Grid.Row="0" Grid.Column="0" Text="Adultos"/>
+                    <Label Grid.Row="0" Grid.Column="1" Text="{Binding Value}"
+                           BindingContext="{x:Reference stp_adultos}"/>
+                    <Stepper Grid.Row="0" Grid.Column="2" x:Name="stp_adultos"
+                             Minimum="0" Maximum="10" Increment="1"/>
+
+                    <!-- Para calcular o valor por crianças -->
+                    <Label Grid.Row="1" Grid.Column="0" Text="Crianças"/>
+                    <Label Grid.Row="1" Grid.Column="1" Text="{Binding Value}"
+                           BindingContext="{x:Reference stp_criancas}"/>
+                    <Stepper Grid.Row="1" Grid.Column="2" x:Name="stp_criancas"
+                             Minimum="0" Maximum="10" Increment="1"/>
+                </Grid>
+
+                <Border Padding="10" Margin="10" StrokeShape="{RoundRectangle CornerRadius=10}">
+                    <VerticalStackLayout>
+                        <Label Text="Selecione sua Suíte:"/>
+                        <!-- Picker faz uma lista suspensa (select) -->
+                        <Picker x:Name="pck_quarto" Title="Selecione sua Acomodação"
+                                ItemDisplayBinding="{Binding NomeComPreco}"/>
+                    </VerticalStackLayout>
+                </Border>
+
+                <!-- Container com "Select" para pegar as datas de entrada e saída -->
+                <Border Padding="10" Margin="10" StrokeShape="RoundRectangle 10">
+                    <VerticalStackLayout Spacing="10">
+                        <Label Text="Período de Estadia"/>
+                        <HorizontalStackLayout>
+                            <Label Text="Check-in: " />
+                            <DatePicker x:Name="dtpck_checkin"
+                                        DateSelected="dtpck_checkin_DateSelected"
+                                        Format="dd/MM/yyyy"/>
+                        </HorizontalStackLayout>
+
+                        <Label Text="Período de Estadia"/>
+                        <HorizontalStackLayout>
+                            <Label Text="Check-out: " />
+                            <DatePicker x:Name="dtpck_checkout"
+                                        DateSelected="dtpck_checkout_DateSelected"
+                                        Format="dd/MM/yyyy"/>
+                        </HorizontalStackLayout>
+                    </VerticalStackLayout>
+                </Border>
+            </VerticalStackLayout>
+        </Border>
+
+        <Button Text="Calcular Valor" Clicked="Button_Clicked"/>
+        
+    </VerticalStackLayout>
+</ContentPage>

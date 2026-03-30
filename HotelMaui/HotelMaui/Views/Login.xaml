@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="HotelMaui.Views.Login"
+             Title="Login">
+    <VerticalStackLayout Margin="10" Spacing="10">
+        <Label Text="Login"
+               HorizontalTextAlignment="Center"
+               Margin="40"
+               FontSize="40"
+               TextColor="{StaticResource Primary}"/>
+        <Border Padding="10" StrokeShape="RoundRectangle 10">
+            <VerticalStackLayout>
+                <Label Text="E-mail"/>
+                <Label Text="{Binding Value}"
+                       BindingContext="{x:Reference txt_email}"/>
+                <Entry x:Name="txt_email" Keyboard="Email"
+                       Placeholder="Digite seu e-mail"/>
+
+                <Label Text="Senha"/>
+                <Label Text="{Binding Value}"
+                       BindingContext="{x:Reference txt_senha}"/>
+                <Entry x:Name="txt_senha" IsPassword="True"
+                       Placeholder="Digite sua senha"/>
+                <Button Text="Entrar" Clicked="Button_Clicked_Entrar"/>
+                <Button Text="Cadastrar" Clicked="Button_Clicked_Cadastrar"/>
+
+            </VerticalStackLayout>
+        </Border>
+
+    </VerticalStackLayout>
+</ContentPage>
