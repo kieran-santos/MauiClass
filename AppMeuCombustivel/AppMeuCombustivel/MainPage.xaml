@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AppMeuCombustivel.MainPage">
+
+    <StackLayout Spacing="10"   
+                 Margin="10"> <!--Coloca em pilha-->
+        
+        <Label Text="Qual combustível compensa mais?"
+               FontSize="Medium"
+               FontAttributes="Bold"
+               HorizontalTextAlignment="Center" />
+        
+        <Label Text="Informe o preço do Etanol:"/>
+        <Entry x:Name="etanol" Placeholder="R$ "/> <!--É o input-->
+        
+        <Label Text="Informe o preço da Gasolina"/>
+        <Entry x:Name="gasolina" Placeholder="R$ "/>
+        
+        <Button Text="Calcular" Clicked="Button_Clicked"/> <!-- Ao criar o Clicked ele dá a opção de começar um novo evento de manipulação, já cria a classe no cs-->
+    </StackLayout>
+
+</ContentPage>
